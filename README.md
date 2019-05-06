@@ -43,5 +43,5 @@ From within the root directory:
 To run app
 
 ```sh
-npm run app
+npm run dev
 ```
