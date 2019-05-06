@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/components/SeasonDisplay.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"SeasonDisplay.60c948d9.css","sourceRoot":"../client/public","sourcesContent":["icon-left {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n}\n\nicon-right {\n  position: absolute;\n  bottom: 10px;\n  right: 10px;\n}\n"]}
