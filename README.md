@@ -1,6 +1,6 @@
 # Seasons-App
 
-> This project is intended to work as a fron-end app for determining the season.
+> This project is intended to work as a front-end app for determining the season.
 
 ## Table of Contents
 
@@ -26,7 +26,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node v8.10.0
 - npm v3.5.2
-- Postgres
 
 ### Installing Dependencies
 
