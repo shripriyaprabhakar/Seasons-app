@@ -26,6 +26,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node v8.10.0
 - npm v3.5.2
+  ls
 
 ### Installing Dependencies
 
