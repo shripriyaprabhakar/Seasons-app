@@ -1,51 +1,39 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 
 import SeasonDisplay from "./SeasonDisplay";
 import Spinner from "./Spinner";
 
-export default class App extends Component {
-  state = {
-    lat: null,
-    errorMsg: ""
-  };
+const App = () => {
+  const [lat, setLat] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  componentDidMount() {
-    this.callFunc();
-  }
-
-  callFunc = () => {
+  useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
           var pos = position.coords.latitude;
           console.log(pos);
-          this.setState({ lat: pos });
+          setLat(pos);
         },
         error => {
-          // On error code..
-
-          this.setState({ errorMsg: error.message });
+          setErrorMessage(error.message);
         },
         { timeout: 30000, enableHighAccuracy: true, maximumAge: 75000 }
       );
     }
-  };
-  renderContent = () => {
-    if (this.state.errorMsg && !this.state.lat) {
-      return <div className="">Error: {this.state.errorMsg}</div>;
-    }
+  }, []);
 
-    if (!this.state.errorMsg && this.state.lat) {
-      return (
-        <div className="">
-          <SeasonDisplay lat={this.state.lat} />
-        </div>
-      );
-    }
-    return <Spinner message="Please Accept Location" />;
-  };
+  const fn = () => {};
 
-  render() {
-    return <div>{this.renderContent()}</div>;
+  let content;
+  if (errorMessage) {
+    content = <div className="">Error: {errorMessage}</div>;
+  } else if (lat) {
+    content = <SeasonDisplay lat={lat} />;
+  } else {
+    content = <Spinner message="Please Accept Location" />;
   }
-}
+  return <div>{this.renderContent()}</div>;
+};
+
+export default App;
